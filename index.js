@@ -156,7 +156,7 @@ async function lookupWeather(input) {
       averageTemp: today.temp,
       currentTemp: current.temp,
       currentDesc: current.conditions,
-      icon: today.icon,
+      icon: current.icon,
     };
 
   } catch (error) {
