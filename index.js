@@ -1,4 +1,4 @@
-const apiKey = 'GSJTBJSLUNFG4X83VWJ9VGLGQ';
+const apiKey = '8SBF82M34B3954EDWHPYSLMMN';
 
 function createForm(parent) {
   const formContainer = document.createElement('form');
@@ -128,7 +128,7 @@ async function lookupWeather(input) {
   try {
     const encodedInput = encodeURIComponent(input);
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`
-      + `/${input}`
+      + `/${encodeURIComponent(input)}`
       + `?key=${apiKey}`
       + `&unitGroup=uk`);
 
