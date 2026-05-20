@@ -83,9 +83,9 @@ function createWeatherDisplay(weatherData) {
   statsContainer.className = 'weather-stats-container';
 
   const stats = [
-    { label: 'Max temp: ', value: `${weatherData.maxTemp}°C` },
-    { label: 'Min temp: ', value: `${weatherData.minTemp}°C` },
-    { label: 'Feels like: ', value: `${weatherData.feelsLike}°C` },
+    { label: 'Average temp: ', value: `${weatherData.averageTemp}°C` },
+    { label: 'Current temp: ', value: `${weatherData.currentTemp}°C` },
+    { label: 'Current conditions: ', value: `${weatherData.currentDesc}` },
   ];
 
   stats.forEach(stat => {
@@ -148,13 +148,14 @@ async function lookupWeather(input) {
     console.log(`Showing weather for: ${fullAddressName}`)
     
     const today = data.days[0];
+    const current = data.currentConditions;
 
     return {
       location: `Showing weather for: ${fullAddressName}`,
       description: data.description,
-      maxTemp: today.tempmax,
-      minTemp: today.tempmin,
-      feelsLike: today.feelslike,
+      averageTemp: today.temp,
+      currentTemp: current.temp,
+      currentDesc: current.conditions,
       icon: today.icon,
     };
 
